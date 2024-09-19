@@ -1,0 +1,18 @@
+#cc-main {
+	/** Change button primary color to black **/
+	--cc-btn-primary-bg: #1E825A;
+	--cc-btn-primary-color: #ffffff;
+	--cc-btn-primary-border-color: #1E825A;
+	--cc-btn-primary-hover-bg: #27A56E;
+	--cc-btn-primary-hover-color: #ffffff;
+	--cc-btn-primary-hover-border-color: #27A56E;
+
+	/** Also make toggles the same color as the button **/
+	--cc-toggle-on-bg: var(--cc-btn-primary-bg);
+
+	/** Make the buttons a bit rounder **/
+	--cc-btn-border-radius: .25em;
+
+	/** Make the modal a bit rounder **/
+	--cc-modal-border-radius: .25em;
+}

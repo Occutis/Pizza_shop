@@ -1,0 +1,10 @@
+joutez un fichier « style.css » à votre projet, rappelez-vous, vous le créez en utilisant VS Code ou touch style.css, à ce stade, vous avez de meilleures connaissances sur la façon d’utiliser git, je vais commencer à vous donner de moins en moins de conseils sur la façon de réaliser votre projet.
+l’en-tête doit être stylisé, je veux une barre de navigation qui n’a pas l’air trop mal, mais voici le problème, vous devrez utiliser ce que vous avez appris ici, donc pas de CSS avancé ou de mise en page pour vous aider. je ne vais pas vous dire quoi faire, mais vous donner quelques directives
+La barre de navigation doit avoir une couleur sombre, quelque chose qui semble un peu sombre, elle n’a pas besoin d’être noire, mais voici ce que nous demandons.
+pour le style de police, je veux que vous utilisiez montserrat ou helvetica, les deux ne sont pas disponibles donc vous devrez les ajouter en utilisant les polices Google.
+pour chaque section de votre page web, je veux que la couleur de fond alterne entre 2 couleurs (vous êtes libre de choisir lesquelles, nous vous donnerons des liens pertinents)
+Je veux que les images aient une taille raisonnable, quelque chose qui soit beau, mais pas trop petit, rappelez-vous que vous avez de grands écrans, alors allez-y, changez le style de vos images, ajoutez des bordures, ajoutez des courbes à vos images (border-radius)
+Le formulaire, eh bien pour le formulaire, je veux que chaque entrée du formulaire occupe tout l'espace disponible, le bouton doit avoir une couleur orangée et du texte blanc.
+Pour le pied de page, je veux que vous le retravailliez et que vous y ajoutiez des éléments sympas, surprenez-moi, rendez-le accrocheur, rendez-le beau.
+
+Voici vos instructions, si vous choisissez de les suivre, votre succès sera le nôtre.

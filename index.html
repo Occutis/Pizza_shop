@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <link href="./input.css" rel="stylesheet" />
+
+    <title>Pizza shop</title>
+  </head>
+
+  <body>
+    <nav class="bg-navimage items-center bg-cover h-[33.1vh] bg-no-repeat">
+      <img
+        src="./Logo/Logo.png"
+        alt=""
+        class="absolute h-16 left-[90vh] top-[21vh] rounded"
+      />
+      <div
+        class="BlockHaut flex flex-row space-x-10 h-[40px] flex justify-center gap-56 text-white top-1"
+      >
+        <div class="Blockdroite flex items-center gap-12">
+          <span class="hover:text-primary text-[12px] cursor-pointer"
+            >About us</span
+          >
+          <span class="hover:text-primary text-[12px] cursor-pointer"
+            >Payment & Delivery</span
+          >
+          <span class="hover:text-primary text-[12px] cursor-pointer"
+            >Discounts</span
+          >
+          <span class="hover:text-primary text-[12px] cursor-pointer"
+            >Contacts</span
+          >
+        </div>
+
+        <div class="Blockgauche flex items-center gap-12">
+          <span class="hover:text-primary text-[12px] cursor-pointer"
+            >Request a call</span
+          >
+          <span class="hover:text-primary text-[12px] cursor-pointer"
+            >Sign in</span
+          >
+          <span class="hover:text-primary text-[12px] cursor-pointer"
+            >Creact an account</span
+          >
+        </div>
+      </div>
+
+      <div
+        class="GrandMenu absolute flex flex-row left-[40vh] gap-12 font-black text-Mylight font-Bitter text-xl top-16"
+      >
+        <div
+          class="cursor-pointer hover:text-primary hover:underline decoration-1 underline-offset-[14px]"
+        >
+          Pizza
+        </div>
+        <div
+          class="cursor-pointer hover:text-primary hover:underline decoration-1 underline-offset-[14px]"
+        >
+          Soup
+        </div>
+        <div
+          class="cursor-pointer hover:text-primary hover:underline decoration-1 underline-offset-[14px]"
+        >
+          Salads and snacks
+        </div>
+        <div
+          class="cursor-pointer hover:text-primary hover:underline decoration-1 underline-offset-[14px]"
+        >
+          Burgers and bugetti
+        </div>
+        <div
+          class="cursor-pointer hover:text-primary hover:underline decoration-1 underline-offset-[14px]"
+        >
+          Sets
+        </div>
+        <div
+          class="cursor-pointer hover:text-primary hover:underline decoration-1 underline-offset-[14px]"
+        >
+          Desserts
+        </div>
+        <div
+          class="cursor-pointer hover:text-primary hover:underline decoration-1 underline-offset-[14px]"
+        >
+          Drinks
+        </div>
+      </div>
+
+      <!-- <img
+        src="./Logo-pizza.jpg"
+        alt=""
+        class="relative h-24 left-[90%] -top-14"
+      /> -->
+    </nav>
+
+    <section class="h-[110vh] bg-bodyimage bg-no-repeat bg-cover">
+      <img
+        src="./img/m18.png"
+        alt="Salade"
+        class="absolute -left-2 h-86 w-80 top-[120vh]"
+      />
+      <img
+        src="./img/m17.png"
+        alt=""
+        class="absolute left-[169vh] h-68 w-88 top-[167vh]"
+      />
+      <img src="./img/n2.png" alt="" class="absolute w-88 top-[45vh]" />
+      <img
+        src="./img/m1.png"
+        alt=""
+        class="absolute left-[176vh] w-[46vh] top-[97vh]"
+      />
+      <img
+        src="./img/M15.png"
+        alt=""
+        class="absolute left-[146vh] w-52 top-[28vh]"
+      />
+      <img src="./img/B8.png" alt="" class="absolute left-[123vh] h-[25vh]" />
+      <img
+        src="./img/t2.png"
+        alt=""
+        class="absolute left-[30vh] top-[18vh] h-[60vh]"
+      />
+      <img src="./img/m4.png" alt="" class="absolute top-[80vh] h-[32vh]" />
+      <img
+        src="./img/m6.png"
+        alt=""
+        class="absolute left-[80vh] top-[32vh] h-[30vh]"
+      />
+      <img
+        src="./img/m14.png"
+        alt=""
+        class="absolute left-56 top-[70vh] h-[32vh]"
+      />
+      <img
+        src="./img/m10.png"
+        alt=""
+        class="absolute left-16 top-[168vh] h-[32vh]"
+      />
+      <img
+        src="./img/m19.png"
+        alt=""
+        class="absolute left-[185vh] top-[70vh] h-[32vh]"
+      />
+      <img
+        src="./img/m11.png"
+        alt=""
+        class="absolute left-[182vh] top-[40vh] h-[49vh]"
+      />
+
+      <!-- Carrée Blanc -->
+      <div
+        class="CarreBlanc absolute flex h-[82.49vh] left-[50.66vh] top-[60.6vh] bg-white w-[121.28vh]"
+      >
+        <!-- Carrée Blanc : Firstpizza -->
+
+        <div class="firstpizza flex-col h-[82.6vh] w-[45vh] bg-white">
+          <img
+            src="./icon/pouce.png"
+            alt="icon_pouce"
+            class="firstpizza absolute h-12 left-12 top-6 z-10 rounded-full"
+          />
+          <img
+            class="relative w-52 top-[6vh] left-[5vh] rounded-full hover:-translate-y-2 duration-500"
+            src="./img_pizza/kebbab.jpg"
+            alt="pizza_Kebbab"
+          />
+          <h1 class="relative mx-24 left-2 top-12 text-pizzatitle font-bold">
+            KEBBAB
+          </h1>
+          <br />
+
+          <p
+            class="relative leading-[2.5vh] line-clamp-3 w-[36vh] h-22 left-8 top-[8vh] text-center text-[2.2vh]"
+          >
+            Olive oil, cheese "mozzarella", eggplant, tomatoes, bulgarian
+            pepper, lule-kebab, basil
+          </p>
+
+          <button
+            class="relative top-[12vh] border py-4 w-36 left-[12vh] bg-boutoncouleur text-white text-bold rounded-2xl hover:bg-bthover active:bg-bthover focus:outline-offset-1 focus:ring"
+          >
+            Add to card
+          </button>
+        </div>
+
+        <!-- Carrée Blanc second pizza -->
+
+        <div class="secondpizza relative h-[67.4vh] w-[45vh] bg-white">
+          <img
+            src="./icon/pouce.png"
+            alt="icon_pouce"
+            class="icon_pouce absolute h-12 left-10 top-6 z-10 rounded-full"
+          />
+          <img
+            class="relative w-52 top-[6vh] left-[3vh] hover:-translate-y-2 duration-500"
+            src="./img_pizza/salami.jpg"
+            alt="pizza_salami"
+          />
+
+          <!--  -->
+
+          <h1 class="relative mx-24 top-12 text-pizzatitle font-bold">
+            Salami
+          </h1>
+          <br />
+
+          <p
+            class="relative leading-[2.5vh] line-clamp-3 w-[36vh] h-22 left-8 top-[8vh] text-center text-[2.2vh]"
+          >
+            Cheese "mozzarella", tomatoes, salami, spinach, italian herbs, olive
+            oil, branded sauce "dadim"
+          </p>
+
+          <button
+            class="relative top-[12vh] border py-4 w-36 left-[9vh] bg-boutoncouleur text-white text-bold rounded-2xl bg-boutoncouleur text-white text-bold rounded-2xl hover:bg-bthover active:bg-bthover focus:outline-offset-1 focus:ring"
+          >
+            Add to card
+          </button>
+
+          <!--  -->
+        </div>
+
+        <!-- Carrée Blanc third pizza -->
+
+        <div class="thirdpizza relative h-[67.4vh] w-[45vh] -left-1.5 bg-white">
+          <img
+            src="./icon/new.png"
+            alt="new-1-svgrepo"
+            class="new-1-svgrepo absolute h-12 left-8 top-8 z-10 rounded-full"
+          />
+          <img
+            class="relative w-52 top-[6vh] left-[3vh] hover:-translate-y-2 duration-500"
+            src="./img_pizza/dadim.jpg"
+            alt="pizza_dadim"
+          />
+
+          <h1 class="relative mx-24 left-2 top-12 text-pizzatitle font-bold">
+            DADIM
+          </h1>
+          <br />
+
+          <p
+            class="relative leading-[2.5vh] line-clamp-3 w-[36vh] h-22 left-8 top-[8vh] text-center text-[2.2vh]"
+          >
+            Cheese "mozzarella", tenderloin, bulgarian pepper, olives, tomatoes,
+            mushrooms, basil, italian herbs, black olives
+          </p>
+
+          <button
+            class="relative top-[12vh] border py-4 w-36 left-[12vh] bg-boutoncouleur text-white text-bold rounded-2xl bg-boutoncouleur text-white text-bold rounded-2xl hover:bg-bthover active:bg-bthover focus:outline-offset-1 focus:ring"
+          >
+            Add to card
+          </button>
+        </div>
+      </div>
+    </section>
+  </body>
+  <footer class="bg-footerimage h-[26rem] bg-no-repeat bg-cover">
+    <article
+      class="footer flex flex-col relative left-[50.7vh] h-[58.6vh] w-[121.3vh] border-t-2 border-t-browner border-x-transparent border-b-transparent top-[10vh]"
+    >
+      <div class="maestro flex-col relative h-[40vh] w-[46vh] top-10">
+
+        <!-- second block -->
+
+        <div
+          class="menufooter absolute flex left-[56vh] flex-col h-[50vh] w-32 gap-2 text-white"
+        >
+          <h3
+            class="hover:text-primary text-Montserrat text-[13px] cursor-pointer"
+          >
+            Pizza
+          </h3>
+          <h3
+            class="hover:text-primary text-Montserrat text-[13px] cursor-pointer"
+          >
+            Soup
+          </h3>
+          <h3
+            class="hover:text-primary text-Montserrat text-[13px] cursor-pointer"
+          >
+            Salads and snacks
+          </h3>
+          <h3
+            class="hover:text-primary text-Montserrat text-[13px] cursor-pointer"
+          >
+            Burgers and bugetti
+          </h3>
+          <h3
+            class="hover:text-primary text-Montserrat text-[13px] cursor-pointer"
+          >
+            Sets
+          </h3>
+          <h3
+            class="hover:text-primary text-Montserrat text-[13px] cursor-pointer"
+          >
+            Desserts
+          </h3>
+          <h3
+            class="hover:text-primary text-Montserrat text-[13px] cursor-pointer"
+          >
+            Drinks
+          </h3>
+        </div>
+        <!-- third block -->
+        <div
+          class="menufooter absolute flex flex-col left-[79.23vh]  h-[50vh] w-[42vh] gap-2 text-white">
+
+            <div class="phone relative flex  items-baseline justify-end  text-Bitter gap-2 hover:text-primary"></a>
+              <span class="indicatif text-[20px] ">+213</span>
+              <span class="phonning font-semi-bold text-[24px]">666-77-66-55</span>
+            </div>
+            <div class="operator flex justify-end text-[14px] gap-2 cursor-pointer  ">
+              <span class="text-call font-bold">*7447</span> <span class="hover:text-primary ">from all operators</span>
+            </div>
+           <div class="adresse relative flex-col top-12justify-end  text-Bitter text-[12px] gap-12  ">
+            <span class="flex justify-end">Daily 11:00-01:00</span>
+            <span class="flex justify-end">09 rue mohamed chikered,</span>
+            <span class="flex justify-end">Kouba Alger, Algerie</span>
+            <a class="email flex justify-end relative top-1 underline underline-offset-1 cursor-pointer hover:text-primary" >info@maestro.com</a>
+            <a class="flex justify-end relative top-8 underline underline-offset-1 cursor-pointer text-call font-semibold text-sm hover:underline-offset-0" >All branches</a>
+           </div>
+
+        </div>
+
+        <!-- first block  -->
+
+        <img class="w-[38vh]" src="./Logo/Logo.png" alt="Petit logo" />
+        <h1 class="relative h-6 border-grey-400 top-6 text-white">
+          Working hours
+        </h1>
+        <h1
+          class="relative h-6 border-grey-400 top-8 text-yellow-400 text-bold"
+        >
+          11:00 - 01:00
+        </h1>
+
+        <!-- Sociaux -->
+        <div
+          class="sociaux flex gap-4 items-center relative h-16 top-10 text-yellow-400 text-bold"
+        >
+          <img
+            class="h-12 rounded-full cursor-pointer"
+            src="./icon/instagram.svg"
+            alt="instagram"
+          />
+
+          <img
+            class="h-12 rounded-full cursor-pointer"
+            src="./icon/twitter.svg "
+            alt="twitter"
+          />
+          <img
+            class="h-12 rounded-full cursor-pointer"
+            src="./icon/facebook.svg"
+            alt="facebook"
+          />
+        </div>
+      </div>
+      <h1 class="flex relative text-white h-10 top-10 w-[42vh] text-xs">
+        © 2014-2024, Maestro — Food delivery service Terms & conditions
+      </h1>
+    </article>
+  </footer>
+</html>

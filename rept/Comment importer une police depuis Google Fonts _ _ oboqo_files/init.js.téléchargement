@@ -1,0 +1,219 @@
+/**
+ * Enable suggestions
+ * @type {import('../../cc/types')}
+ */
+
+Object.keys(skpcc.run).forEach(function(key) {
+	skpcc.run[key] = typeof skpcc.run[key] == 'string' && !isNaN(skpcc.run[key]) && !isNaN(parseFloat(skpcc.run[key])) ? parseInt(skpcc.run[key]) : skpcc.run[key];
+
+	if( key == 'cookie' && typeof skpcc.expiration.partial_consent == 'string' ) {
+		skpcc.run[key].expiresAfterDays = (acceptType) => {
+			if(acceptType === 'all')
+				return parseInt(skpcc.expiration.full_consent);
+
+			return parseInt(skpcc.expiration.partial_consent);
+		}
+	}
+})
+
+
+// Object.keys(skpcc.run.categories).forEach(function(key) {
+// 	Object.keys(skpcc.run.categories[key]).forEach(function(ley) {
+// 		if( ley == 'autoClear') {
+// 			Object.keys(skpcc.run.categories[key][ley]).forEach(function(mey) {
+// 				if( mey == 'cookies') {
+// 					Object.keys(skpcc.run.categories[key][ley][mey]).forEach(function(ney) {
+// 						var cookie_name = skpcc.run.categories[key][ley][mey][ney];
+// 					})
+// 				}
+// 			})
+// 		}
+// 	})
+// })
+
+CookieConsent.run( skpcc.run );
+
+if( skpcc.darkmode ) {
+ document.documentElement.classList.add('cc--darkmode');
+}
+
+const skpcc_loadConsent = ()=>{
+	const ccpm = document.querySelector("#cc-main .pm");
+	if (!window.CookieConsent.validConsent() || !ccpm)
+			return;
+	const {consentId: o, consentTimestamp: n, lastConsentTimestamp: t} = window.CookieConsent.getCookie()
+		, ccpm_consent_id = ccpm.querySelector("#consent-id")
+		, ccpm_consent_tt = ccpm.querySelector("#consent-timestamp")
+		, ccpm_consent_ltt = ccpm.querySelector("#last-consent-timestamp");
+		ccpm_consent_id && (ccpm_consent_id.textContent = o),
+		ccpm_consent_tt && (ccpm_consent_tt.textContent = new Date(n).toLocaleString()),
+		ccpm_consent_ltt && (ccpm_consent_ltt.textContent = new Date(t).toLocaleString())
+}
+
+function skpcc_logConsent(){
+	const cookie = CookieConsent.getCookie();
+	const preferences = CookieConsent.getUserPreferences();
+
+	const userConsent = {
+		consentId: cookie.consentId,
+		consentTimestamp: cookie.consentTimestamp,
+		lastConsentTimestamp: cookie.lastConsentTimestamp,
+		revision: cookie.revision,
+		services: cookie.services,
+		acceptType: preferences.acceptType,
+		acceptedCategories: preferences.acceptedCategories,
+		acceptedServices: preferences.acceptedServices,
+		rejectedCategories: preferences.rejectedCategories,
+		rejectedServices: preferences.rejectedServices
+	};
+
+	jQuery.post(skpcc.ajaxurl, {
+		'proof': userConsent,
+		'action': 'skpcc_run_consent_logging'
+	}, function(response){
+		// response = JSON.parse(response);
+	});
+}
+
+function skpcc_get_consent_saved(){
+	const preferences = CookieConsent.getUserPreferences();
+	const granted = [];
+	const denied = [];
+
+	// Get granted categories
+	preferences.acceptedCategories.forEach(function(category){
+		granted.push('category_'+category);
+	});
+
+	// Get granted services
+	Object.keys(preferences.acceptedServices).forEach(function (key){
+		preferences.acceptedServices[key].forEach(function(service){
+			granted.push('service_'+service);
+		});
+	});
+
+	// Get denied categories
+	preferences.rejectedCategories.forEach(function(category){
+		denied.push('category_'+category);
+	});
+
+	// Get denied services
+	Object.keys(preferences.rejectedServices).forEach(function (key){
+		preferences.rejectedServices[key].forEach(function(service){
+			denied.push('service_'+service);
+		});
+	});
+
+	return {
+		type: preferences.acceptType,
+		granted: granted,
+		denied: denied,
+	}
+}
+
+
+function skpcc_sendConsent(){
+	const preferences = CookieConsent.getUserPreferences();
+	const gcm = [];
+	const granted = [];
+	const denied = [];
+
+	preferences.acceptedCategories.forEach(function(category){
+		var gcm_cat = skpcc.gcm_categories[ category ];
+		if( gcm_cat !== undefined ) {
+			gcm[gcm_cat] = 'granted';
+		}
+
+		granted.push('category_'+category);
+	});
+
+	Object.keys(preferences.acceptedServices).forEach(function (key){
+		preferences.acceptedServices[key].forEach(function(service){
+			granted.push('service_'+service);
+		});
+	});
+
+	preferences.rejectedCategories.forEach(function(category){
+		var gcm_cat = skpcc.gcm_categories[ category ];
+		if( gcm_cat !== undefined ) {
+			gcm[gcm_cat] = 'denied';
+		}
+
+		denied.push('category_'+category);
+	});
+
+	Object.keys(preferences.rejectedServices).forEach(function (key){
+		preferences.rejectedServices[key].forEach(function(service){
+			denied.push('service_'+service);
+		});
+	});
+
+	if (typeof gtag === 'function') {
+		gtag('consent', 'update', gcm);
+	}
+
+	window.dataLayer.push({
+		event:'skpcc_consent_saved',
+		skpcc: {
+			type: preferences.acceptType,
+			granted: granted,
+			denied: denied,
+		},
+	});
+}
+
+window.addEventListener('cc:onFirstConsent', function(event){
+	/**
+	 * event.detail.cookie
+	 */
+
+	skpcc_logConsent();
+});
+
+window.addEventListener('cc:onConsent', function(event){
+	/**
+	 * event.detail.cookie
+	 */
+
+	skpcc_sendConsent();
+	skpcc_loadConsent();
+});
+
+window.addEventListener('cc:onChange', function(event){
+	/**
+	 * event.detail.cookie
+	 * event.detail.changedCategories
+	 * event.detail.changedServices
+	 */
+
+	skpcc_sendConsent();
+	skpcc_logConsent();
+	skpcc_loadConsent();
+});
+
+window.addEventListener('cc:onModalShow', function(event){
+	/**
+	 * event.detail.modalName
+	 */
+
+	event.detail.modalName === "preferencesModal" && skpcc_loadConsent();
+});
+
+
+jQuery(document).ready(function () {
+	window.dataLayer.push({
+		skpcc: skpcc_get_consent_saved(),
+	});
+
+	jQuery( 'a[href="#skpcc-show-preferencesModal"]' ).each(function(i,j) {
+		jQuery(j).click(function() {
+			CookieConsent.showPreferences();
+		});
+	});
+
+	jQuery( 'a[href="#skpcc-show-preferencesModal"]' ).each(function(i,j) {
+		jQuery(j).click(function() {
+			CookieConsent.show(true);
+		});
+	});
+});
