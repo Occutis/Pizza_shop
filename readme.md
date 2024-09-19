@@ -1,2 +1,2 @@
-s Pizza_shop
+Pizza_shop
 # pizzorino_website
